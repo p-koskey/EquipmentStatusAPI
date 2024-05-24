@@ -1,0 +1,11 @@
+using EquipmentStatusAPI.Entities;
+using Microsoft.EntityFrameworkCore;
+
+namespace EquipmentStatusAPI.Data;
+
+public class ApplicationDbContext:DbContext
+{
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
+    public DbSet<EquipmentStatus> EquipmentStatus { get; set; }
+}

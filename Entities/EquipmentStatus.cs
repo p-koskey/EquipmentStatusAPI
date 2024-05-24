@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EquipmentStatusAPI.Entities;
 
-public class Equipment
+public class EquipmentStatus
 {
     [Key]
     public Guid Id { get; set; } = Guid.NewGuid();
