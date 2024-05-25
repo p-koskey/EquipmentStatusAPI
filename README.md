@@ -27,23 +27,37 @@ The API is documented using Swagger.
    cd EquipmentStatusAPI
 
 2. **Restore dependencies**
+ 
      ```bash
      dotnet restore
 
 3. **Build the project**
+ 
      ```bash
      dotnet build
+
+Make sure you install dotnet-ef tool, if you don't have it installed, use the following command :    
+   
+     dotnet tool install --global dotnet-ef --version 8.*
      
-4. **Add the Initial Migration**
-     ```bash
-     dotnet ef migrations add InitialCreate
+4. **Change the directory into the API directory**
 
-5. **Update the database**
-     ```bash
-     dotnet ef database update
+      ```bash
+     cd EquipmentStatusAPI
+     
+5. **Add the Initial Migration**
+ 
+    ```bash
+     dotnet-ef migrations add InitialCreate
 
-6. **Run the application**
+6. **Update the database**
+
      ```bash
+     dotnet-ef database update
+
+8. **Run the application**
+
+    ```bash
      dotnet run
 
 Open your browser and navigate to http://localhost:<port>/swagger/index.html to view and test the endpoints
