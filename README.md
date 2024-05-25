@@ -23,7 +23,7 @@ The API is documented using Swagger.
 1. **Clone the Repository**
 
    ```bash
-   https://github.com/p-koskey/EquipmentStatusAPI.git
+   git clone https://github.com/p-koskey/EquipmentStatusAPI.git
    cd EquipmentStatusAPI
 
 2. **Restore dependencies**
@@ -60,7 +60,7 @@ Make sure you install dotnet-ef tool, if you don't have it installed, use the fo
     ```bash
      dotnet run
 
-Open your browser and navigate to http://localhost:<port>/swagger/index.html to view and test the endpoints
+Open your browser and navigate to http://localhost:5147/swagger/index.html to view and test the endpoints
      
 ## Choice of database
 The application uses SQLite as a lightweight, file-based database. SQLite is suitable for this project due to its simplicity and it's quite easy to setup. 
