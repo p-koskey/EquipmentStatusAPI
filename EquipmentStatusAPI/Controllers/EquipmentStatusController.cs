@@ -15,6 +15,11 @@ public class EquipmentStatusController : ControllerBase
         _equipmentStatusService = equipmentStatusService;
     }
     
+    /// <summary>
+    /// Receives and stores status updates for equipment.
+    /// </summary>
+    /// <param name="statusDto">The equipment Id and equipment status.</param>
+    /// <returns>The created status update data.</returns>
     [HttpPost] // POST : api/status
     public async Task<ActionResult<EquipmentStatus>> Status(EquipmentStatusCreateDto statusDto)
     {
@@ -36,6 +41,11 @@ public class EquipmentStatusController : ControllerBase
         }
     }
     
+    /// <summary>
+    /// Retrieves the current status of the specified equipment.
+    /// </summary>
+    /// <param name="equipmentId">The ID of the equipment.</param>
+    /// <returns>The current status of the equipment.</returns>
     [HttpGet("{equipmentId}")]  // GET  : api/status/{equipmentId}
     public async Task<ActionResult<EquipmentStatusDto>> GetStatus(string equipmentId)
     {
