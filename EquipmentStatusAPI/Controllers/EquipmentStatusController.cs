@@ -18,13 +18,26 @@ public class EquipmentStatusController : ControllerBase
     [HttpPost] // POST : api/status
     public async Task<ActionResult<EquipmentStatus>> Status(EquipmentStatusCreateDto statusDto)
     {
-        var responseDto = await _equipmentStatusService.AddStatusAsync(statusDto);
+        // validate input data
+        if (!Enum.IsDefined(typeof(StatusEnum),statusDto.Status) || string.IsNullOrWhiteSpace(statusDto.EquipmentId))
+        {
+            // return 400 Bad Request if input data is invalid
+            return BadRequest("Invalid input data.");
+        }
 
-        return Ok("Successfully add status");
+        try
+        {
+            var responseDto = await _equipmentStatusService.AddStatusAsync(statusDto);
+            return Ok(responseDto);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
     }
     
     [HttpGet("{equipmentId}")]  // GET  : api/status/{equipmentId}
-    public async Task<ActionResult<EquipmentStatusDto>> Status(string equipmentId)
+    public async Task<ActionResult<EquipmentStatusDto>> GetStatus(string equipmentId)
     {
         // retrieve current status from database
         var statusDto = await _equipmentStatusService.GetCurrentStatusAsync(equipmentId);
@@ -35,7 +48,7 @@ public class EquipmentStatusController : ControllerBase
             return NotFound("Equipment not found");
         }
         
-        return statusDto;
+        return Ok(statusDto);
     }
     
 }
