@@ -1,4 +1,6 @@
 using EquipmentStatusAPI.Data;
+using EquipmentStatusAPI.Repositories;
+using EquipmentStatusAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,10 @@ var configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(configuration.GetConnectionString("DefaultConnection")));
+
+//register repository and services with DI container
+builder.Services.AddScoped<IEquipmentStatusRepository, EquipmentStatusRepository>();
+builder.Services.AddScoped<IEquipmentStatusService, EquipmentStatusService>();
 
 builder.Services.AddControllers();
 
