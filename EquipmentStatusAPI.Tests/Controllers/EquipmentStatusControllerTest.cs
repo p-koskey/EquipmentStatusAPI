@@ -49,7 +49,7 @@ public class EquipmentStatusControllerTest
         var controller = new EquipmentStatusController(mockService.Object);
         var statusDto = new EquipmentStatusCreateDto
         {
-            EquipmentId = "", // invalid input
+            EquipmentId = "", // invalid input, empty string
             Status = 1
         };
     
@@ -68,8 +68,8 @@ public class EquipmentStatusControllerTest
         var controller = new EquipmentStatusController(mockService.Object);
         var statusDto = new EquipmentStatusCreateDto
         {
-            EquipmentId = "eqp005", // invalid input
-            Status = 100
+            EquipmentId = "eqp005", 
+            Status = 100  // invalid input, status value doesn't exist in enum
         };
     
         // Act
