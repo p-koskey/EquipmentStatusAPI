@@ -23,7 +23,7 @@ The API is documented using Swagger and uses a lightweight SQLite database.
 
 1. **Clone the Repository**
 
-   Clone the repository and and navigate to the solution directory.
+   Clone the repository and navigate to the solution directory.
 
    ```bash
    git clone https://github.com/p-koskey/EquipmentStatusAPI.git
