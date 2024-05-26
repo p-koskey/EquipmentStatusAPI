@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Equipment Status API is a simple, yet functional backend application that demonstrates how to keep track equipment status updates and provide a RESTful API to interact with this data. 
+The Equipment Status API is a simple, yet functional backend application that demonstrates how to keep track of equipment status updates and provide a RESTful API to interact with this data. 
 The API is documented using Swagger and uses a lightweight SQLite database.
 
 ## Features
