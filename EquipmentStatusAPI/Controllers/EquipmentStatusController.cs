@@ -23,12 +23,15 @@ public class EquipmentStatusController : ControllerBase
     [HttpPost] // POST : api/status
     public async Task<ActionResult<EquipmentStatus>> Status(EquipmentStatusCreateDto statusDto)
     {
-        // validate input data
-        if (!Enum.IsDefined(typeof(StatusEnum),statusDto.Status) || string.IsNullOrWhiteSpace(statusDto.EquipmentId))
-        {
+        // validate equipment Id
+        if (string.IsNullOrWhiteSpace(statusDto.EquipmentId))
             // return 400 Bad Request if input data is invalid
-            return BadRequest("Invalid input data.");
-        }
+            return BadRequest("Equipment Id should not be null or whitespace");
+        
+        // validate status
+        if (!Enum.IsDefined(typeof(StatusEnum),statusDto.Status) )
+            // return 400 Bad Request if input data is invalid
+            return BadRequest("Unknown status, status should be between 1 and 5 ");
 
         try
         {
