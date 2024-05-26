@@ -17,22 +17,29 @@ The API is documented using Swagger.
 
 - .NET Core SDK 8.0 or later
 - SQLite (included in the project)
+- Entity Framework core
 
 ### Steps to Run the Application
 
 1. **Clone the Repository**
+
+   Clone the repository and and navigate to the solution directory.
 
    ```bash
    git clone https://github.com/p-koskey/EquipmentStatusAPI.git
    cd EquipmentStatusAPI
 
 2. **Restore dependencies**
- 
+
+   Restore the necessary NuGet packages.
+
      ```bash
      dotnet restore
 
 3. **Build the project**
- 
+
+   Build the project to ensure all dependencies and configurations are correct.
+
      ```bash
      dotnet build
 
@@ -42,20 +49,27 @@ Make sure you install dotnet-ef tool, if you don't have it installed, use the fo
      
 4. **Change the directory into the API directory**
 
+   Navigate to the project directory.
       ```bash
      cd EquipmentStatusAPI
      
 5. **Add the Initial Migration**
  
+    Add the initial migration to set up your database schema.
+
     ```bash
      dotnet-ef migrations add InitialCreate
 
 6. **Update the database**
 
+   Apply the migration to update your database.
+
      ```bash
      dotnet-ef database update
 
-8. **Run the application**
+7. **Run the application**
+
+   Run the application using the following command:
 
     ```bash
      dotnet run
@@ -76,16 +90,20 @@ This architecture has the following layers:
 
 This pattern promotes separation of concerns, making the application easier to maintain and extend.
 
-##Testing
+## Testing
 Unit tests are included to ensure the reliability of the API endpoints. 
 
 ### Running Tests
-1. **Navigate to the tests project**
-   
+1. **Change the directory into the EquipmentStatusAPI.Tests directory**
+
+   Navigate to the test project
+
      ```bash
     cd EquipmentStatusAPI.Tests
      
 3. **Run the Tests**
-   
+
+   Run the tests using the following command:
+
      ```bash
     dotnet test
